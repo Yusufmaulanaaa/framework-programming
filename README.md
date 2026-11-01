@@ -46,7 +46,7 @@ npm install
 ```
 
 ### Database Setup
-1. Create MySQL database named `bookstore`
+1. Create MySQL database named `bookstore_ecommerce`
 2. Configure environment variables in `.env` file
 3. Environment template available in `.env.example`
 
@@ -75,14 +75,6 @@ docs/
 └── ERD_BookStore.png   # Visual ERD diagram
 ```
 
-## Key Differences from Original
-
-- **Unique Identity**: Project developed by Yusufmaulanaaa
-- **Custom Configuration**: Environment-specific settings
-- **Modern Documentation**: Updated README structure
-- **Clean Repository**: No references to external contributors
-- **Personalized Features**: Tailored requirements and functionality
-
 ## Technologies Used
 
 - **Backend**: NestJS 11
@@ -90,14 +82,42 @@ docs/
 - **Environment**: Node.js with npm
 - **Configuration**: `@nestjs/config` package
 
-## Development Setup
+## Production Setup
 
-This project is designed for educational purposes and personal development, featuring:
+### Environment Configuration
+**⚠️ Security Warning:** The `.env` file contains sensitive credentials and **should never be committed to version control**. It is already included in `.gitignore`:
 
-- Clean, maintainable code structure
-- Comprehensive documentation
-- Flexible configuration options
-- Scalable architecture for future enhancements
+```
+.env
+```
+
+### Production Database Configuration
+For production deployment, use a dedicated MySQL database:
+
+```bash
+# Production database configuration
+DB_HOST=your-mysql-server
+DB_PORT=3306
+DB_USERNAME=bookstore_user
+DB_PASSWORD=secure_production_password
+DB_NAME=bookstore_ecommerce
+NODE_ENV=production
+```
+
+### Local Development
+For local development, copy the template and customize:
+
+```bash
+# Create local environment from template
+cp .env.example .env
+# Edit .env with your local MySQL credentials
+```
+
+### Security Best Practices
+- Never commit `.env` files to GitHub
+- Use environment-specific configuration
+- Store production passwords in secure secret managers
+- Use different configurations for development, staging, and production
 
 ## Contact
 
