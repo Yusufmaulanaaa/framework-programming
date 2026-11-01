@@ -48,7 +48,7 @@ npm install
 ### Database Setup
 1. Create MySQL database named `bookstore_ecommerce`
 2. Configure environment variables in `.env` file
-3. Environment template available in `.env.example`
+3. Manually create `.env` file with your local MySQL credentials
 
 ### Running the Application
 ```bash
@@ -89,6 +89,9 @@ docs/
 
 ```
 .env
+.env.local
+.env.production
+.env.development
 ```
 
 ### Production Database Configuration
@@ -105,12 +108,18 @@ NODE_ENV=production
 ```
 
 ### Local Development
-For local development, copy the template and customize:
+For local development, create your `.env` file manually with your MySQL credentials:
 
 ```bash
-# Create local environment from template
-cp .env.example .env
-# Edit .env with your local MySQL credentials
+# Create .env file with your database credentials
+cat > .env << EOF
+DB_HOST=localhost
+DB_PORT=3306
+DB_USERNAME=bookstore_user
+DB_PASSWORD=your-local-password
+DB_NAME=bookstore_ecommerce
+NODE_ENV=development
+EOF
 ```
 
 ### Security Best Practices
